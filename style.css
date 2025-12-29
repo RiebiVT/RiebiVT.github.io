@@ -1,6 +1,114 @@
-/* ... (keep all your previous styles unchanged up to here) ... */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Modal Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a; /* Deeper black for full-screen feel */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #e0e0e0;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    background: #111111;
+    border-radius: 24px;
+    padding: 60px 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid #222;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #dc143c;
+    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.4);
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.bio {
+    font-size: 17px;
+    color: #cccccc;
+    max-width: 80%;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.link-btn {
+    display: block;
+    padding: 18px;
+    background: #dc143c;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 999px;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.3);
+}
+
+.link-btn:hover {
+    transform: translateY(-5px);
+    background: #c41238;
+    box-shadow: 0 12px 30px rgba(220, 20, 60, 0.5);
+}
+
+footer {
+    margin-top: 70px;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+    .container {
+        padding: 50px 20px;
+        border-radius: 20px;
+    }
+    
+    .profile-img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    .bio {
+        font-size: 16px;
+    }
+}
 .modal {
     display: none;
     position: fixed;
