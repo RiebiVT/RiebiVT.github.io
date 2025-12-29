@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name | Links</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -14,18 +14,61 @@
         <p class="bio">Your short bio or description here. Tell people about yourself!</p>
         
         <div class="links">
-            <a href="https://instagram.com/yourprofile" target="_blank" class="link-btn">Instagram</a>
-            <a href="https://twitter.com/yourprofile" target="_blank" class="link-btn">Twitter / X</a>
-            <a href="https://youtube.com/yourchannel" target="_blank" class="link-btn">YouTube</a>
+            <a href="https://instagram.com/yourprofile" class="link-btn sensitive">Instagram</a>
+            <a href="https://twitter.com/yourprofile" class="link-btn sensitive">Twitter / X</a>
+            <a href="https://youtube.com/yourchannel" class="link-btn sensitive">YouTube</a>
             <a href="https://yourwebsite.com" target="_blank" class="link-btn">My Website</a>
             <a href="https://tiktok.com/@yourprofile" target="_blank" class="link-btn">TikTok</a>
             <a href="mailto:you@email.com" class="link-btn">Contact Me</a>
-            <!-- Add or remove links as needed -->
         </div>
         
         <footer>
             <p>Made with ❤️ by You</p>
         </footer>
     </div>
+
+    <!-- Sensitive Content Warning Modal -->
+    <div id="sensitiveModal" class="modal">
+        <div class="modal-content">
+            <h2>Sensitive Content Warning</h2>
+            <p>This link may lead to content that is sensitive, mature, or not suitable for all audiences.</p>
+            <p>Are you sure you want to proceed?</p>
+            <div class="modal-buttons">
+                <button id="cancelBtn" class="modal-btn cancel">Cancel</button>
+                <button id="proceedBtn" class="modal-btn proceed">Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('sensitiveModal');
+        const proceedBtn = document.getElementById('proceedBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        let targetUrl = '';
+
+        document.querySelectorAll('.sensitive').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                targetUrl = this.getAttribute('href');
+                modal.style.display = 'flex';
+            });
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        proceedBtn.addEventListener('click', () => {
+            window.open(targetUrl, '_blank');
+            modal.style.display = 'none';
+        });
+
+        // Close modal if clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
